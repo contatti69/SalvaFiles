@@ -1,38 +1,37 @@
 {
-  "name": "typescript-plugin",
+  "name": "jan-extension-salva-files",
   "version": "1.0.0",
-  "description": "Typescript plugin boilerplate",
-  "icon": "https://raw.githubusercontent.com/tailwindlabs/heroicons/88e98b0c2b458553fbadccddc2d2f878edc0387b/src/20/solid/command-line.svg",
+  "description": "Estensione per Jan che permette di salvare file prodotti nella chat in una cartella locale",
   "main": "dist/index.js",
-  "module": "dist/module.js",
-  "author": "Jan",
-  "license": "MIT",
-  "activationPoints": [
-    "init"
-  ],
   "scripts": {
-    "build": "tsc -b . && webpack --config webpack.config.js",
-    "bundle": "npm pack"
+    "build": "tsc",
+    "bundle": "npm run build && npm pack",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "exports": {
-    ".": "./dist/index.js",
-    "./main": "./dist/module.js"
+  "keywords": [
+    "jan",
+    "extension",
+    "files",
+    "save",
+    "share"
+  ],
+  "author": "Il tuo nome",
+  "license": "MIT",
+  "dependencies": {
+    "@janhq/core": "^0.1.0"
   },
   "devDependencies": {
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "@types/node": "^20.11.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
   },
-  "dependencies": {
-    "@janhq/core": "^0.1.1",
-    "ts-loader": "^9.5.0"
-  },
-  "bundledDependencies": [],
-  "engines": {
-    "node": ">=18.0.0"
+  "jan": {
+    "type": "extension",
+    "displayName": "SalvaFiles",
+    "description": "Salva e condividi i file prodotti durante la chat"
   },
   "files": [
-    "dist/*",
-    "package.json",
-    "README.md"
+    "dist/**/*"
   ]
 }
